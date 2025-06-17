@@ -2,10 +2,32 @@
 <html>
 <head>
     <title>Музыкальный QR</title>
+    <style>
+        #playButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <audio autoplay controls>
+    <button id="playButton">▶ Включить звук</button>
+    <audio id="player" controls>
         <source src="https://raw.githubusercontent.com/krukirworkspace/extplayer/main/music.mp3" type="audio/mpeg">
     </audio>
+
+    <script>
+        const button = document.getElementById("playButton");
+        const player = document.getElementById("player");
+
+        button.addEventListener("click", () => {
+            player.play(); // Запуск после клика
+            button.style.display = "none"; // Скрываем кнопку
+        });
+    </script>
 </body>
 </html>
